@@ -173,7 +173,7 @@ function Hero() {
           transition={{ duration: 0.6 }}
         >
           <div className="aspect-[4/5] w-full rounded-2xl bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-700 shadow-inner overflow-hidden flex items-end p-6">
-            <p className="text-sm text-neutral-600 dark:text-neutral-300">Drop a headshot or illustration here.</p>
+            <img src="/picture.jpeg" alt="Picture of me" />
           </div>
         </motion.div>
       </div>
