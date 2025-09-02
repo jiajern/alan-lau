@@ -13,11 +13,11 @@ const SUMMARY =
   "I build delightful, performant web apps with a focus on clean UX and reliable engineering. Previously shipped apps used by thousands of users.";
 
 const LOCATION = "New York, NY";
-const EMAIL = "you@example.com";
+const EMAIL = "alanlau97@gmail.com";
 const RESUME_URL = "/resume.pdf"; // replace with your actual file path
 const SOCIALS = [
-  { label: "GitHub", href: "https://github.com/yourname", Icon: Github },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/yourname", Icon: Linkedin },
+  { label: "GitHub", href: "https://github.com/jiajern", Icon: Github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/jiajern/", Icon: Linkedin },
   { label: "Email", href: `mailto:${EMAIL}`, Icon: Mail },
 ];
 
@@ -68,18 +68,23 @@ const PROJECTS = [
 
 const TIMELINE = [
   {
-    when: "2024 — Present",
-    where: "Acme Corp",
-    what: "Senior Software Engineer",
+    when: "2022 — Present",
+    where: "BNY | Pershing",
+    what: "Full-Stack Engineer - Senior Associate",
   },
   {
-    when: "2021 — 2024",
-    where: "Globex",
-    what: "Full-Stack Engineer",
+    when: "2020 — 2022",
+    where: "BNY | Pershing",
+    what: "Full-Stack Engineer - Associate",
   },
   {
-    when: "2019 — 2021",
-    where: "University",
+    when: "2019 — 2020",
+    where: "Macaulay Honors College at The City University of New York",
+    what: "College Assistant",
+  },
+  {
+    when: "2015 — 2019",
+    where: "The City College of New York",
     what: "B.S. Computer Science",
   },
 ];
