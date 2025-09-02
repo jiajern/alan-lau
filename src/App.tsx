@@ -1,10 +1,10 @@
-import React from "react";
-import { motion } from "motion/react"
-import { Github, Linkedin, Mail, ExternalLink, MapPin, Calendar, ArrowRight } from "lucide-react";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { ArrowRight, Calendar, ExternalLink, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { motion } from "motion/react";
+import React from "react";
 
 // ---------- Content you can customize ----------
 const NAME = "Alan Lau";
@@ -178,7 +178,7 @@ function Hero() {
           transition={{ duration: 0.6 }}
         >
           <div className="aspect-[4/5] w-full rounded-2xl bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-700 shadow-inner overflow-hidden flex items-end p-6">
-            <img src="/picture.jpeg" alt="Picture of me" />
+            <img src={`${import.meta.env.BASE_URL}/picture.jpeg`} alt="Picture of me" />
           </div>
         </motion.div>
       </div>
