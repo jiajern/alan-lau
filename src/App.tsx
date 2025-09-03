@@ -35,32 +35,32 @@ const SKILLS = [
 
 const PROJECTS = [
   {
-    title: "Realtime Team Board",
+    title: "dParking",
     blurb:
-      "Kanban app with live presence and optimistic updates. Deployed to Vercel; serverless functions, PostgreSQL, and WebSockets.",
-    tech: ["Next.js", "tRPC", "Prisma", "PostgreSQL"],
-    demo: "https://example.com/demo-1",
-    code: "https://github.com/yourname/realtime-board",
+      "A decentralized mobile parking system to make parking more accessible and secure. Made it into the top 6 at Lehman Hackathon 2019.",
+    tech: ["React", "AntDesign", "BlockStack", "Heroku"],
+    demo: "https://devpost.com/software/uknown",
+    code: "https://github.com/jiajern/dParking",
     image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop", // replace
+      `${import.meta.env.BASE_URL}/dParking.gif`,
   },
   {
-    title: "Smart Budgeter",
+    title: "Revive",
     blurb:
-      "Personal finance dashboard with bank syncing and category insights. Background jobs, charts, and secure auth.",
-    tech: ["React", "Express", "MongoDB", "Chart.js"],
-    demo: "https://example.com/demo-2",
-    code: "https://github.com/yourname/smart-budgeter",
+      "A mobile app to help people finding the disposal site for their waste by simply taking a photo. Awarded the best hack for environment at CUNY Hackathon 2019.",
+    tech: ["React Native", "Google Cloud"],
+    demo: "https://devpost.com/software/cuny-hackathon-2019",
+    code: "https://github.com/jiajern/revive",
     image:
-      "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop",
+      `${import.meta.env.BASE_URL}/revive.png`,
   },
   {
-    title: "Image Diffusion Studio",
+    title: "JobFirst",
     blurb:
-      "Local-first image generation UI with prompt presets and gallery. Workers for long tasks and offline cache.",
-    tech: ["Electron", "Rust", "Tauri", "Tailwind"],
-    demo: "https://example.com/demo-3",
-    code: "https://github.com/yourname/diffusion-studio",
+      "A job listing web application designed to help immigrants with language barriers easily find employment opportunities.",
+    tech: ["React", "GraphQL", "AWS Amplify", "Ant Design"],
+    demo: "https://example.com/demo",
+    code: "https://github.com/jiajern/JobFirst",
     image:
       "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1600&auto=format&fit=crop",
   },
@@ -68,24 +68,24 @@ const PROJECTS = [
 
 const TIMELINE = [
   {
-    when: "2022 — Present",
+    when: "January 2022 — Present",
     where: "BNY | Pershing",
     what: "Full-Stack Engineer - Senior Associate",
   },
   {
-    when: "2020 — 2022",
+    when: "February 2020 — January 2022",
     where: "BNY | Pershing",
     what: "Full-Stack Engineer - Associate",
   },
   {
-    when: "2019 — 2020",
+    when: "August 2019 — January 2020",
     where: "Macaulay Honors College at The City University of New York",
     what: "College Assistant",
   },
   {
-    when: "2015 — 2019",
-    where: "The City College of New York",
-    what: "B.S. Computer Science",
+    when: "July 2019 — August 2019",
+    where: "Macaulay Honors College at The City University of New York",
+    what: "Data Analyst - Internship",
   },
 ];
 
