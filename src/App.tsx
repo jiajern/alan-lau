@@ -10,7 +10,7 @@ import React from "react";
 const NAME = "Alan Lau";
 const TAGLINE = "Software Engineer • Full-Stack • Cloud";
 const SUMMARY =
-  "I build delightful, performant web apps with a focus on clean UX and reliable engineering. Previously shipped apps used by thousands of users.";
+  "I build delightful, performant web apps with a focus on clean UX and reliable engineering.";
 
 const LOCATION = "New York, NY";
 const EMAIL = "alanlau97@gmail.com";
