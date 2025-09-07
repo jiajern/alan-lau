@@ -1,8 +1,24 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, Calendar, ExternalLink, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import {
+  ArrowRight,
+  // Award,
+  Calendar,
+  ExternalLink,
+  Github,
+  GraduationCap,
+  Linkedin,
+  Mail,
+  MapPin,
+} from "lucide-react";
 import { motion } from "motion/react";
 import React from "react";
 
@@ -17,15 +33,21 @@ const EMAIL = "alanlau97@gmail.com";
 const RESUME_URL = "/resume.pdf"; // replace with your actual file path
 const SOCIALS = [
   { label: "GitHub", href: "https://github.com/jiajern", Icon: Github },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/jiajern/", Icon: Linkedin },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/jiajern/",
+    Icon: Linkedin,
+  },
   { label: "Email", href: `mailto:${EMAIL}`, Icon: Mail },
 ];
 
 const SKILLS = [
+  "Angular",
   "TypeScript",
   "React / Next.js",
   "Node.js",
-  "Java / Spring",
+  "Java / SpringBoot",
+  "MongoDB",
   "PostgreSQL",
   "AWS",
   "Docker",
@@ -41,8 +63,7 @@ const PROJECTS = [
     tech: ["React", "AntDesign", "BlockStack", "Heroku"],
     demo: "https://devpost.com/software/uknown",
     code: "https://github.com/jiajern/dParking",
-    image:
-      `${import.meta.env.BASE_URL}/dParking.gif`,
+    image: `${import.meta.env.BASE_URL}/dParking.gif`,
   },
   {
     title: "Revive",
@@ -51,8 +72,7 @@ const PROJECTS = [
     tech: ["React Native", "Google Cloud"],
     demo: "https://devpost.com/software/cuny-hackathon-2019",
     code: "https://github.com/jiajern/revive",
-    image:
-      `${import.meta.env.BASE_URL}/revive.png`,
+    image: `${import.meta.env.BASE_URL}/revive.png`,
   },
   {
     title: "JobFirst",
@@ -89,6 +109,28 @@ const TIMELINE = [
   },
 ];
 
+const EDUCATION = [
+  {
+    school: "The City College of New York (CUNY)",
+    degree: "B.S. in Computer Science",
+    period: "",
+    details: "Focused on software engineering, algorithms, and data systems.",
+  }
+];
+
+// const CERTIFICATIONS = [
+//   {
+//     name: "AWS Certified Solutions Architect - Associate",
+//     issuer: "Amazon Web Services",
+//     year: "2023",
+//   },
+//   {
+//     name: "Oracle Certified Professional: Java SE",
+//     issuer: "Oracle",
+//     year: "2022",
+//   },
+// ];
+
 // ---------- Helpers ----------
 const fade = {
   hidden: { opacity: 0, y: 12 },
@@ -104,15 +146,22 @@ function Nav() {
     { href: "#about", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#timeline", label: "Experience" },
+    { href: "#education", label: "Education" },
     { href: "#contact", label: "Contact" },
   ];
   return (
     <header className="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-neutral-900/60 border-b border-neutral-200/60 dark:border-neutral-800/60">
       <div className={`${section} h-16 flex items-center justify-between`}>
-        <a href="#home" className="font-semibold tracking-tight text-lg">{NAME}</a>
+        <a href="#home" className="font-semibold tracking-tight text-lg">
+          {NAME}
+        </a>
         <nav className="hidden md:flex gap-6 text-sm">
           {items.map((item) => (
-            <a key={item.href} href={item.href} className="hover:opacity-80 transition-opacity">
+            <a
+              key={item.href}
+              href={item.href}
+              className="hover:opacity-80 transition-opacity"
+            >
               {item.label}
             </a>
           ))}
@@ -130,7 +179,10 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="home" className={`${section} scroll-mt-16 pt-16 pb-16 md:pt-24 md:pb-28`}>
+    <section
+      id="home"
+      className={`${section} scroll-mt-16 pt-16 pb-16 md:pt-24 md:pb-28`}
+    >
       <div className="grid md:grid-cols-5 gap-8 items-center">
         <motion.div
           className="md:col-span-3"
@@ -138,17 +190,26 @@ function Hero() {
           viewport={{ once: true }}
           variants={fade}
         >
-          <p className="text-sm uppercase tracking-widest text-neutral-500 dark:text-neutral-400">{TAGLINE}</p>
+          <p className="text-sm uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
+            {TAGLINE}
+          </p>
           <h1 className="mt-3 text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.1]">
-            Hi, I'm <span className="underline decoration-4 decoration-neutral-300 dark:decoration-neutral-700">{NAME}</span>
+            Hi, I'm{" "}
+            <span className="underline decoration-4 decoration-neutral-300 dark:decoration-neutral-700">
+              {NAME}
+            </span>
           </h1>
-          <p className="mt-5 text-neutral-700 dark:text-neutral-300 max-w-2xl">{SUMMARY}</p>
+          <p className="mt-5 text-neutral-700 dark:text-neutral-300 max-w-2xl">
+            {SUMMARY}
+          </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Button asChild>
               <a href="#projects">View Projects</a>
             </Button>
             <Button asChild variant="secondary">
-              <a href={RESUME_URL} target="_blank" rel="noreferrer">Download Résumé</a>
+              <a href={RESUME_URL} target="_blank" rel="noreferrer">
+                Download Résumé
+              </a>
             </Button>
             <div className="flex items-center gap-3 ml-1">
               {SOCIALS.map(({ label, href, Icon }) => (
@@ -166,8 +227,14 @@ function Hero() {
             </div>
           </div>
           <div className="mt-5 flex items-center gap-4 text-sm text-neutral-600 dark:text-neutral-400">
-            <span className="inline-flex items-center gap-1"><MapPin className="h-4 w-4" />{LOCATION}</span>
-            <span className="inline-flex items-center gap-1"><Calendar className="h-4 w-4" />Open to opportunities</span>
+            <span className="inline-flex items-center gap-1">
+              <MapPin className="h-4 w-4" />
+              {LOCATION}
+            </span>
+            <span className="inline-flex items-center gap-1">
+              <Calendar className="h-4 w-4" />
+              Open to opportunities
+            </span>
           </div>
         </motion.div>
         <motion.div
@@ -178,7 +245,10 @@ function Hero() {
           transition={{ duration: 0.6 }}
         >
           <div className="aspect-[4/5] w-full rounded-2xl bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-700 shadow-inner overflow-hidden flex items-end p-6">
-            <img src={`${import.meta.env.BASE_URL}/picture.jpeg`} alt="Picture of me" />
+            <img
+              src={`${import.meta.env.BASE_URL}/picture.jpeg`}
+              alt="Picture of me"
+            />
           </div>
         </motion.div>
       </div>
@@ -201,10 +271,20 @@ function Projects() {
 
       <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {PROJECTS.map((p) => (
-          <motion.div key={p.title} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fade}>
+          <motion.div
+            key={p.title}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fade}
+          >
             <Card className="h-full flex flex-col overflow-hidden">
               <div className="relative aspect-[16/10] overflow-hidden">
-                <img src={p.image} alt={p.title} className="object-cover w-full h-full" />
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className="object-cover w-full h-full"
+                />
               </div>
               <CardHeader>
                 <CardTitle className="text-lg">{p.title}</CardTitle>
@@ -213,18 +293,33 @@ function Projects() {
                 <p>{p.blurb}</p>
                 <ul className="mt-3 flex flex-wrap gap-2">
                   {p.tech.map((t) => (
-                    <li key={t} className="px-2 py-1 rounded-full text-xs border border-neutral-200 dark:border-neutral-700">{t}</li>
+                    <li
+                      key={t}
+                      className="px-2 py-1 rounded-full text-xs border border-neutral-200 dark:border-neutral-700"
+                    >
+                      {t}
+                    </li>
                   ))}
                 </ul>
               </CardContent>
               <CardFooter className="mt-auto flex gap-3">
                 <Button asChild size="sm">
-                  <a href={p.demo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1">
+                  <a
+                    href={p.demo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1"
+                  >
                     Live Demo <ExternalLink className="h-4 w-4" />
                   </a>
                 </Button>
                 <Button asChild size="sm" variant="secondary">
-                  <a href={p.code} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1">
+                  <a
+                    href={p.code}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1"
+                  >
                     Source <Github className="h-4 w-4" />
                   </a>
                 </Button>
@@ -241,15 +336,28 @@ function About() {
   return (
     <section id="about" className={`${section} scroll-mt-16 py-12 md:py-16`}>
       <div className="grid md:grid-cols-3 gap-8">
-        <motion.div className="md:col-span-2" initial="hidden" whileInView="show" viewport={{ once: true }} variants={fade}>
+        <motion.div
+          className="md:col-span-2"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fade}
+        >
           <h2 className="text-2xl md:text-3xl font-bold">About</h2>
           <p className="mt-4 text-neutral-700 dark:text-neutral-300 leading-relaxed">
-            I love turning complex ideas into simple, elegant interfaces. I care about code quality,
-            accessibility, and meaningful product impact. I’ve collaborated with cross‑functional teams and shipped
-            features end‑to‑end—from discovery and design to implementation, testing, and release.
+            I love turning complex ideas into simple, elegant interfaces. I care
+            about code quality, accessibility, and meaningful product impact.
+            I’ve collaborated with cross‑functional teams and shipped features
+            end‑to‑end—from discovery and design to implementation, testing, and
+            release.
           </p>
         </motion.div>
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fade}>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fade}
+        >
           <div className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4">
             <h3 className="font-semibold">At a glance</h3>
             <ul className="mt-3 space-y-2 text-sm">
@@ -268,7 +376,13 @@ function About() {
 function Skills() {
   return (
     <section id="skills" className={`${section} scroll-mt-16 py-12 md:py-16`}>
-      <motion.h2 className="text-2xl md:text-3xl font-bold" initial="hidden" whileInView="show" viewport={{ once: true }} variants={fade}>
+      <motion.h2
+        className="text-2xl md:text-3xl font-bold"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fade}
+      >
         Skills
       </motion.h2>
       <motion.ul
@@ -276,10 +390,20 @@ function Skills() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.05 } } }}
+        variants={{
+          hidden: { opacity: 0 },
+          show: { opacity: 1, transition: { staggerChildren: 0.05 } },
+        }}
       >
         {SKILLS.map((s) => (
-          <motion.li key={s} variants={{ hidden: { opacity: 0, y: 6 }, show: { opacity: 1, y: 0 } }} className="px-3 py-2 rounded-full border text-sm border-neutral-200 dark:border-neutral-700">
+          <motion.li
+            key={s}
+            variants={{
+              hidden: { opacity: 0, y: 6 },
+              show: { opacity: 1, y: 0 },
+            }}
+            className="px-3 py-2 rounded-full border text-sm border-neutral-200 dark:border-neutral-700"
+          >
             {s}
           </motion.li>
         ))}
@@ -291,7 +415,13 @@ function Skills() {
 function Timeline() {
   return (
     <section id="timeline" className={`${section} scroll-mt-16 py-12 md:py-16`}>
-      <motion.h2 className="text-2xl md:text-3xl font-bold" initial="hidden" whileInView="show" viewport={{ once: true }} variants={fade}>
+      <motion.h2
+        className="text-2xl md:text-3xl font-bold"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fade}
+      >
         Experience
       </motion.h2>
       <div className="mt-8 relative">
@@ -300,13 +430,98 @@ function Timeline() {
           {TIMELINE.map((t) => (
             <li key={t.when} className="pl-10 relative">
               <span className="absolute left-0 top-1.5 h-2.5 w-2.5 rounded-full bg-neutral-400" />
-              <div className="text-sm text-neutral-500 dark:text-neutral-400">{t.when}</div>
+              <div className="text-sm text-neutral-500 dark:text-neutral-400">
+                {t.when}
+              </div>
               <div className="font-semibold">{t.what}</div>
-              <div className="text-neutral-700 dark:text-neutral-300">{t.where}</div>
+              <div className="text-neutral-700 dark:text-neutral-300">
+                {t.where}
+              </div>
             </li>
           ))}
         </ul>
       </div>
+    </section>
+  );
+}
+
+function EducationAndCertifications() {
+  return (
+    <section
+      id="education"
+      className={`${section} scroll-mt-16 py-12 md:py-16`}
+    >
+      <motion.h2
+        className="text-2xl md:text-3xl font-bold"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fade}
+      >
+        Education & Certifications
+      </motion.h2>
+
+      {/* Education */}
+      <div className="mt-8 grid md:grid-cols-2 gap-6">
+        {EDUCATION.map((edu) => (
+          <motion.div
+            key={edu.school}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fade}
+          >
+            <Card className="h-full">
+              <CardHeader className="flex items-center gap-2">
+                <GraduationCap className="h-5 w-5" />
+                <CardTitle className="text-lg">{edu.degree}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-neutral-700 dark:text-neutral-300">
+                <div className="font-semibold">{edu.school}</div>
+                {/* <div className="text-neutral-500 dark:text-neutral-400">
+                  {edu.period}
+                </div> */}
+                <p className="mt-2">{edu.details}</p>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Certifications */}
+      {/* <motion.h3
+        className="mt-12 text-xl md:text-2xl font-semibold"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fade}
+      >
+        Certifications
+      </motion.h3>
+      <div className="mt-6 grid md:grid-cols-2 gap-6">
+        {CERTIFICATIONS.map((cert) => (
+          <motion.div
+            key={cert.name}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fade}
+          >
+            <Card>
+              <CardHeader className="flex items-center gap-2">
+                <Award className="h-5 w-5" />
+                <CardTitle className="text-lg">{cert.name}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-neutral-700 dark:text-neutral-300">
+                <div className="font-semibold">{cert.issuer}</div>
+                <div className="text-neutral-500 dark:text-neutral-400">
+                  {cert.year}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </div> */}
     </section>
   );
 }
@@ -317,22 +532,35 @@ function Contact() {
     const data = new FormData(e.currentTarget);
     const name = data.get("name");
     const message = encodeURIComponent(String(data.get("message") || ""));
-    const subject = encodeURIComponent(`Portfolio inquiry from ${name || "Website"}`);
+    const subject = encodeURIComponent(
+      `Portfolio inquiry from ${name || "Website"}`
+    );
     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${message}`;
   };
 
   return (
     <section id="contact" className={`${section} scroll-mt-16 py-12 md:py-20`}>
-      <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fade}>
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fade}
+      >
         <h2 className="text-2xl md:text-3xl font-bold">Let’s work together</h2>
         <p className="mt-3 text-neutral-700 dark:text-neutral-300 max-w-2xl">
-          Interested in collaborating or have an opportunity in mind? Send me a note—I'll get back to you.
+          Interested in collaborating or have an opportunity in mind? Send me a
+          note—I'll get back to you.
         </p>
         <form onSubmit={onSubmit} className="mt-6 grid md:grid-cols-2 gap-4">
           <Input name="name" placeholder="Your name" required />
           <Input name="email" type="email" placeholder="Your email" required />
           <div className="md:col-span-2">
-            <Textarea name="message" placeholder="Project details or message" rows={5} required />
+            <Textarea
+              name="message"
+              placeholder="Project details or message"
+              rows={5}
+              required
+            />
           </div>
           <div className="md:col-span-2">
             <Button type="submit">Send Email</Button>
@@ -346,11 +574,21 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-neutral-200 dark:border-neutral-800 py-10 mt-8">
-      <div className={`${section} flex flex-col md:flex-row items-center justify-between gap-4`}>
-        <div className="text-sm text-neutral-500">© {new Date().getFullYear()} {NAME}. All rights reserved.</div>
+      <div
+        className={`${section} flex flex-col md:flex-row items-center justify-between gap-4`}
+      >
+        <div className="text-sm text-neutral-500">
+          © {new Date().getFullYear()} {NAME}. All rights reserved.
+        </div>
         <div className="flex items-center gap-3">
           {SOCIALS.map(({ label, href, Icon }) => (
-            <a key={label} href={href} target="_blank" rel="noreferrer" className="p-2 rounded-full hover:bg-neutral-50 dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-800">
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className="p-2 rounded-full hover:bg-neutral-50 dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-800"
+            >
               <Icon className="h-4 w-4" />
             </a>
           ))}
@@ -370,6 +608,7 @@ export default function App() {
         <About />
         <Skills />
         <Timeline />
+        <EducationAndCertifications />
         <Contact />
       </main>
       <Footer />
