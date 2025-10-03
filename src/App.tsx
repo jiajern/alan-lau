@@ -587,6 +587,7 @@ function Footer() {
               href={href}
               target="_blank"
               rel="noreferrer"
+              aria-label={label}
               className="p-2 rounded-full hover:bg-neutral-50 dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-800"
             >
               <Icon className="h-4 w-4" />
